@@ -1,7 +1,7 @@
 
 <%
-if (session.getAttribute("name") != null
-&& ((String) session.getAttribute("type")).equalsIgnoreCase("accountant")) {
+	if (session.getAttribute("name") != null
+			&& ((String) session.getAttribute("type")).equalsIgnoreCase("accountant")) {
 %>
 <!DOCTYPE html>
 <%@page import="techsolutions.student.StudentDAO"%>
@@ -27,15 +27,15 @@ if (session.getAttribute("name") != null
 			<div
 				class="row fullscreen d-flex align-items-center justify-content-center">
 				<div class="banner-content col-lg-8 col-md-12">
-					<h2 class="wow fadeIn" data-wow-duration="4s">View Students</h2>
+					<h1 class="wow fadeIn" data-wow-duration="4s">View Students</h1>
 					<%
 						String sid = request.getParameter("sid");
-						if (sid != null) {
-							new StudentDAO().deleteStudent(Integer.parseInt(sid));
-							response.sendRedirect("viewAccountant.jsp");
-						} else {
-							ArrayList<StudentDTO> al = new StudentDAO().getAllStudents();
-							if (al != null) {
+							if (sid != null) {
+								new StudentDAO().deleteStudent(Integer.parseInt(sid));
+								response.sendRedirect("viewAccountant.jsp");
+							} else {
+								ArrayList<StudentDTO> al = new StudentDAO().getAllStudents();
+								if (al != null) {
 					%>
 					<table id="table">
 						<tr>
@@ -68,12 +68,14 @@ if (session.getAttribute("name") != null
 						</tr>
 						<%
 							}
-								} else {
+									} else {
 						%>
-						<h1>No Data available to show</h1>
+						<tr>
+							<th><h1>No Data available to show</h1></th>
+						</tr>
 						<%
 							}
-							}
+								}
 						%>
 					</table>
 					<br> <br /> <a href="addStudent.jsp">Add Student</a>

@@ -12,6 +12,7 @@
 		dto.setName(request.getParameter("name"));
 		dto.setPwd(request.getParameter("pwd"));
 		dto.setSem(Integer.parseInt(request.getParameter("sem")));
+		dto.setSid(Integer.parseInt(request.getParameter("sid")));
 		if (dao.updateStudent(dto)) {
 			response.sendRedirect("viewStudent.jsp");
 		} else {
@@ -46,7 +47,8 @@
 					method="post">
 
 					<span class="login100-form-title p-b-34 p-t-27"> Update
-						Student </span> <input type="hidden" name="sid" value="<%=dto.getSid()%>">
+						Student </span>
+					<input type="hidden" name="sid" value="<%=dto.getSid()%>">
 
 					<div class="wrap-input100 validate-input"
 						data-validate="Enter username">
@@ -102,7 +104,7 @@
 
 					<div class="wrap-input100 validate-input"
 						data-validate="Enter username">
-						<input class="input100" type="textarea" name="address"
+						<input class="input100" type="text" name="address"
 							value="<%=dto.getAddress()%>" placeholder="Enter address">
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>

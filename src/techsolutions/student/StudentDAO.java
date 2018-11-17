@@ -18,7 +18,7 @@ public class StudentDAO {
 			if (conn == null) {
 				conn = FeeDB.getConnection();
 			}
-			String query = "insert into student_master(name, eno, gender, course, address, mno, pwd, sem) values(?,?,?,?,?,?,?,?,?,?,?)";
+			String query = "insert into student_master(name, eno, gender, course, address, mno, pwd, sem) values(?,?,?,?,?,?,?,?)";
 			ps = conn.prepareStatement(query);
 			ps.setString(1, dto.getName());
 			ps.setString(2, dto.getEno());
@@ -114,7 +114,7 @@ public class StudentDAO {
 				System.out.println(Password.decrypt(rs.getString("pwd")));
 				dto.setPwd(Password.decrypt(rs.getString("pwd")));
 				dto.setSem(rs.getInt("sem"));
-				dto.setSid(rs.getInt("Sid"));
+				dto.setSid(rs.getInt("sid"));
 			}
 		} catch (Exception e) {
 			System.out.println("+++Exception in getStudent: " + e);
@@ -149,7 +149,7 @@ public class StudentDAO {
 				dto.setPaid(rs.getFloat("paid"));
 				dto.setPwd(Password.decrypt(rs.getString("pwd")));
 				dto.setSem(rs.getInt("sem"));
-				dto.setSid(rs.getInt("Sid"));
+				dto.setSid(rs.getInt("sid"));
 				al.add(dto);
 			}
 		} catch (Exception e) {
@@ -184,10 +184,10 @@ public class StudentDAO {
 				dto.setPaid(rs.getFloat("paid"));
 				dto.setPwd(Password.decrypt(rs.getString("pwd")));
 				dto.setSem(rs.getInt("sem"));
-				dto.setSid(rs.getInt("Sid"));
+				dto.setSid(rs.getInt("sid"));
 			}
 		} catch (Exception e) {
-			System.out.println("+++Exception in getStudent: " + e);
+			System.out.println("+++Exception in getStudentByEno: " + e);
 		} finally {
 			ps = null;
 			rs = null;

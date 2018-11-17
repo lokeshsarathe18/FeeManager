@@ -60,7 +60,11 @@
 							}
 									} else {
 						%>
-						<h1>No Data available to show</h1>
+						<tr>
+							<th>
+								<h1>No Data available to show</h1>
+							</th>
+						</tr>
 						<%
 							}
 								}
