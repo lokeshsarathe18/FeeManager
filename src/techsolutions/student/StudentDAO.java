@@ -78,6 +78,7 @@ public class StudentDAO {
 				conn = FeeDB.getConnection();
 			}
 			String query = "delete from student_master where sid=" + sid;
+			ps = conn.prepareStatement(query);
 			if (ps.executeUpdate() > 0) {
 				flag = true;
 			}
